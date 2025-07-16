@@ -250,11 +250,11 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .tab-content {
-            display: none;
+            display: none !important;
             animation: fadeIn 0.3s ease-in;
         }
         .tab-content.active {
-            display: block;
+            display: block !important;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -322,10 +322,13 @@
         }
         
         function showTab(tabId) {
-            // Hide all tab contents
+            console.log('Switching to tab:', tabId);
+            
+            // FORCE hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => {
                 content.classList.remove('active');
+                content.style.display = 'none'; // Force hide with inline style
             });
             
             // Remove active class from all nav tabs
@@ -334,11 +337,21 @@
                 tab.classList.remove('active');
             });
             
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
+            // FORCE show selected tab content
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+                selectedTab.style.display = 'block'; // Force show with inline style
+                console.log('Showing tab:', tabId);
+            } else {
+                console.error('Tab not found:', tabId);
+            }
             
-            // Add active class to clicked tab
-            event.target.classList.add('active');
+            // Mark selected nav tab as active
+            const selectedNavTab = document.querySelector(`[onclick="showTab('${tabId}')"]`);
+            if (selectedNavTab) {
+                selectedNavTab.classList.add('active');
+            }
             
             // Scroll to top of content
             window.scrollTo({ top: 80, behavior: 'smooth' });
