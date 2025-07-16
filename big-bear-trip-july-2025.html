@@ -344,14 +344,10 @@
             window.scrollTo({ top: 80, behavior: 'smooth' });
         }
         
-        // Initialize first tab as active
+        // Initialize Trip Overview tab as active
         document.addEventListener('DOMContentLoaded', function() {
-            const firstTab = document.querySelector('.nav-tab');
-            const firstContent = document.querySelector('.tab-content');
-            if (firstTab && firstContent) {
-                firstTab.classList.add('active');
-                firstContent.classList.add('active');
-            }
+            // Show Trip Overview by default
+            showTab('trip-overview');
         });
     </script>
 </head>
@@ -359,14 +355,15 @@
     <div class="fixed-header">
         <div class="header-content">
             <nav class="nav-tabs">
-                <button class="nav-tab" onclick="showTab('boys-adventures')">🏹 Boys Adventures</button>
-                <button class="nav-tab" onclick="showTab('water-activities')">🚤 Water Activities</button>
-                <button class="nav-tab" onclick="showTab('dining-guide')">🍽️ Dining Guide</button>
-                <button class="nav-tab" onclick="showTab('outdoor-adventures')">🏞️ Outdoor Adventures</button>
-                <button class="nav-tab" onclick="showTab('entertainment')">🎮 Entertainment</button>
-                <button class="nav-tab" onclick="showTab('photography')">📸 Photography</button>
-                <button class="nav-tab" onclick="showTab('transportation')">🚗 Transportation</button>
-                <button class="nav-tab" onclick="showTab('safety-gear')">🎒 Safety & Gear</button>
+                <button class="nav-tab" onclick="showTab('trip-overview')">🏔️ Trip Overview</button>
+                <button class="nav-tab" onclick="showTab('boys-adventures')">🏹 Kids Activities</button>
+                <button class="nav-tab" onclick="showTab('water-activities')">🚤 Lake & Water</button>
+                <button class="nav-tab" onclick="showTab('dining-guide')">🍽️ Restaurants</button>
+                <button class="nav-tab" onclick="showTab('outdoor-adventures')">🥾 Hiking & Nature</button>
+                <button class="nav-tab" onclick="showTab('entertainment')">🎯 Family Fun</button>
+                <button class="nav-tab" onclick="showTab('photography')">📸 Photo Spots</button>
+                <button class="nav-tab" onclick="showTab('transportation')">🚗 Getting Around</button>
+                <button class="nav-tab" onclick="showTab('safety-gear')">🎒 What to Pack</button>
             </nav>
         </div>
     </div>
@@ -376,31 +373,33 @@
         <p class="subtitle">July 21-23, 2025 | Boulder Bay Area | 5 Adults & 5 Kids</p>
         <p class="subtitle"><em>The Complete Guide to Your Mountain Adventure</em></p>
 
-        <div class="quick-info">
-            <div class="quick-info-card">
-                <h3>📍 Location</h3>
-                <p>Private Dock House<br>Near Boulder Bay Park</p>
+        <!-- Trip Overview Tab -->
+        <div id="trip-overview" class="tab-content">
+            <div class="quick-info">
+                <div class="quick-info-card">
+                    <h3>📍 Location</h3>
+                    <p>Private Dock House<br>Near Boulder Bay Park</p>
+                </div>
+                <div class="quick-info-card">
+                    <h3>🌊 Lake Level</h3>
+                    <p>Currently 6.96 feet below full<br>~68 feet deep (excellent!)</p>
+                </div>
+                <div class="quick-info-card">
+                    <h3>🎣 Fishing</h3>
+                    <p>Kids under 16: FREE<br>Adults: CA License Required</p>
+                </div>
+                <div class="quick-info-card">
+                    <h3>🎉 Special Events</h3>
+                    <p>Farmers Market: July 22<br>Peak Summer Season</p>
+                </div>
             </div>
-            <div class="quick-info-card">
-                <h3>🌊 Lake Level</h3>
-                <p>Currently 6.96 feet below full<br>~68 feet deep (excellent!)</p>
-            </div>
-            <div class="quick-info-card">
-                <h3>🎣 Fishing</h3>
-                <p>Kids under 16: FREE<br>Adults: CA License Required</p>
-            </div>
-            <div class="quick-info-card">
-                <h3>🎉 Special Events</h3>
-                <p>Farmers Market: July 22<br>Peak Summer Season</p>
-            </div>
-        </div>
 
-        <div class="cultural-box">
-            <h4>🏛️ Cultural Heritage</h4>
-            <p>You're visiting the ancestral homeland of the Yuhaaviatam (Serrano) people, who called this valley "Yuhaaviat" (Pine Place) for over 2,000 years. Look for ancient grinding rocks in the boulders where they processed pinon nuts!</p>
-        </div>
+            <div class="cultural-box">
+                <h4>🏛️ Cultural Heritage</h4>
+                <p>You're visiting the ancestral homeland of the Yuhaaviatam (Serrano) people, who called this valley "Yuhaaviat" (Pine Place) for over 2,000 years. Look for ancient grinding rocks in the boulders where they processed pinon nuts!</p>
+            </div>
 
-        <h2>🌤️ Weather Forecast & Safety</h2>
+            <h2>🌤️ Weather Forecast & Safety</h2>
         <div>
             <div class="weather-day">
                 <h4>Monday, July 21</h4>
@@ -670,6 +669,9 @@
                 </li>
             </ul>
         </div>
+        </div>
+        
+        <!-- End Trip Overview Tab -->
         </div>
 
         <div class="tab-container">
