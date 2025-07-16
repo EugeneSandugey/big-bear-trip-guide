@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f7f9;
-            padding-top: 120px; /* More space for fixed header */
+            padding-top: 80px; /* Space for fixed header */
         }
         .fixed-header {
             position: fixed;
@@ -30,13 +30,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            position: relative;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            padding: 0;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
@@ -216,8 +215,7 @@
             font-size: 14px;
         }
         .tab-container {
-            margin: 0;
-            padding: 30px;
+            margin: 20px 0;
         }
         .tab-buttons {
             display: none; /* Hide the old tab buttons */
@@ -226,26 +224,22 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2px;
+            gap: 5px;
             padding: 5px 0;
         }
         .nav-tab {
             background: rgba(255, 255, 255, 0.9);
             color: #2c5aa0;
             border: none;
-            padding: 8px 10px;
+            padding: 12px 20px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 16px;
             font-weight: 500;
-            border-radius: 15px;
+            border-radius: 25px;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            white-space: nowrap;
-            flex: 1 1 auto;
-            min-width: 0;
-            text-align: center;
         }
         .nav-tab:hover {
             background: white;
@@ -312,9 +306,8 @@
                 grid-template-columns: 1fr;
             }
             .nav-tab {
-                font-size: 11px;
-                padding: 6px 8px;
-                flex: 1 1 auto;
+                font-size: 14px;
+                padding: 10px 15px;
             }
         }
     </style>
@@ -366,20 +359,9 @@
             // Scroll to top of content
             window.scrollTo({ top: 80, behavior: 'smooth' });
         }
-
+        
         // Initialize Trip Overview tab as active
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded, initializing tabs...');
-            
-            // Force hide ALL tabs first
-            const allTabs = document.querySelectorAll('.tab-content');
-            console.log('Found tabs:', allTabs.length);
-            allTabs.forEach((tab, index) => {
-                console.log(`Tab ${index}: ${tab.id}`);
-                tab.style.display = 'none';
-                tab.classList.remove('active');
-            });
-            
             // Show Trip Overview by default
             showTab('trip-overview');
         });
@@ -402,8 +384,9 @@
         </div>
     </div>
     
-        <!-- Trip Overview Tab -->
+    <div class="container">
         <div class="tab-container">
+            <!-- Trip Overview Tab -->
             <div id="trip-overview" class="tab-content">
             <h1>🏔️ Big Bear Lake Family Trip Guide</h1>
             <p class="subtitle">July 21-23, 2025 | Boulder Bay Area | 5 Adults & 5 Kids</p>
@@ -703,8 +686,7 @@
             </ul>
         </div>
         </div>
-
-
+        
         <!-- End Trip Overview Tab -->
         </div>
         </div>
@@ -1275,6 +1257,369 @@
         </div>
             </div>
 
+        <h2>🛍️ Shopping Guide - The Village & Beyond</h2>
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <h4>The Village Shopping District</h4>
+                <p><strong>Free 3-hour parking in Village deck</strong></p>
+                <ul>
+                    <li><strong>Souvenir Shops:</strong>
+                        <ul>
+                            <li>Bear Essentials - Local artisan crafts</li>
+                            <li>Mountain Gifts - Big Bear apparel</li>
+                            <li>The Shirt Shanty - Custom designs</li>
+                        </ul>
+                    </li>
+                    <li><strong>Specialty Stores:</strong>
+                        <ul>
+                            <li>Alpenglow Mountain Sports</li>
+                            <li>Goldsmith's Board & Ski</li>
+                            <li>Village Sweet Shoppe</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>Unique Big Bear Souvenirs</h4>
+                <p><strong>Must-Visit Shops</strong></p>
+                <ul>
+                    <li><strong>Grizzly Manor Gift Shop</strong> - Restaurant merch</li>
+                    <li><strong>Bear Valley Honey</strong> - Local honey & products</li>
+                    <li><strong>Sugarloaf Cordwood</strong> - Wood crafts</li>
+                    <li><strong>Big Bear Alpine Zoo Gift Shop</strong> - Wildlife themed</li>
+                    <li><strong>Gold Rush Mining Co.</strong> - Gems & minerals</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🗝️ Hidden Gems & Local Secrets of Big Bear Lake</h2>
+        <div class="danger-box">
+            <h4>🤫 Locals-Only Spots (Shh... Don't Tell Everyone!)</h4>
+            <p><strong>These are the places locals don't want crowded with tourists!</strong></p>
+        </div>
+
+        <h3>🏖️ Secret Swimming Spots</h3>
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <h4>Metcalf Bay Secret Beach</h4>
+                <p><strong>GPS:</strong> <a href="https://www.google.com/maps/place/34%C2%B014'52.0%22N+116%C2%B056'12.0%22W" target="_blank">34.2478°N, 116.9367°W</a></p>
+                <ul>
+                    <li><strong>Why it's secret:</strong> No signs, locals only</li>
+                    <li><strong>Access:</strong> Park at mile marker 3.2, walk down</li>
+                    <li><strong>Features:</strong> Sandy bottom, gradual entry</li>
+                    <li><strong>Best time:</strong> Weekday mornings</li>
+                    <li><strong>Bonus:</strong> Eagles nest in trees above</li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>The Quarry Swimming Hole</h4>
+                <p><strong>North Shore past Fawnskin</strong></p>
+                <ul>
+                    <li><strong>Old granite quarry</strong> filled with water</li>
+                    <li><strong>Crystal clear</strong> and cold!</li>
+                    <li><strong>Cliff jumping</strong> for brave teens</li>
+                    <li><strong>Directions:</strong> Ask at Grizzly Manor</li>
+                    <li><strong>Warning:</strong> No lifeguards ever</li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>Boulder Bay Night Beach</h4>
+                <p><strong>Your own backyard secret!</strong></p>
+                <ul>
+                    <li><strong>Night swimming</strong> when lake is glass</li>
+                    <li><strong>Bioluminescence</strong> in July!</li>
+                    <li><strong>Best:</strong> 10 PM - midnight</li>
+                    <li><strong>Bring:</strong> Waterproof flashlights</li>
+                    <li><strong>Magic:</strong> Stars reflect perfectly</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🍔 Secret Menu Items & Local Hacks</h3>
+        <div class="highlight-box">
+            <h4>Restaurant Insider Secrets</h4>
+            <ul>
+                <li><strong>Grizzly Manor:</strong> Ask for "The Hibernator" - off-menu 7lb burrito challenge</li>
+                <li><strong>Teddy Bear Restaurant:</strong> Order pancakes "birthday style" for free candle & song</li>
+                <li><strong>Saucy Mama's:</strong> Tuesday after 8 PM - half price leftover pizza slices</li>
+                <li><strong>Captain's Anchorage:</strong> Ask for "Fisherman's Special" - whatever didn't sell, cheap!</li>
+                <li><strong>Himalayan Restaurant:</strong> Say "Namaste discount" for 10% off (owner's from Nepal)</li>
+                <li><strong>Village Sweet Shoppe:</strong> End of day "mistake" chocolates - 75% off</li>
+                <li><strong>Bowling Barn:</strong> Lost & found bowling shoes - $5 (cleaned daily)</li>
+            </ul>
+        </div>
+
+        <h3>🎣 Secret Fishing Spots</h3>
+        <div class="info-box">
+            <h4>Where Locals Actually Catch Fish</h4>
+            <ul>
+                <li><strong>The Pipe:</strong> Storm drain outlet east of dam
+                    <ul>
+                        <li>GPS: <a href="https://www.google.com/maps/place/34%C2%B014'06.0%22N+116%C2%B053'42.0%22W" target="_blank">34.2350°N, 116.8950°W</a></li>
+                        <li>Fish stack here for oxygen</li>
+                        <li>Use: Small PowerBait or worms</li>
+                    </ul>
+                </li>
+                <li><strong>Gilner Point After Dark:</strong> 
+                    <ul>
+                        <li>Catfish city from 9 PM - 2 AM</li>
+                        <li>Use: Chicken liver or hot dogs</li>
+                        <li>Bring: Good flashlight</li>
+                    </ul>
+                </li>
+                <li><strong>Boulder Bay Dawn Patrol:</strong>
+                    <ul>
+                        <li>5:30-6:30 AM before boats</li>
+                        <li>Cast toward island</li>
+                        <li>Rainbow trout feeding time</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>🚗 Parking Secrets & Traffic Hacks</h3>
+        <div class="warning-box">
+            <h4>Beat the Crowds Like a Local</h4>
+            <ul>
+                <li><strong>Village Parking Secret:</strong> 
+                    <ul>
+                        <li>Park at Bartlett/Thrush (always empty)</li>
+                        <li>2-minute walk to Village center</li>
+                        <li>Free all day, no time limits</li>
+                    </ul>
+                </li>
+                <li><strong>Traffic Bypass:</strong>
+                    <ul>
+                        <li>Use Sandalwood Drive to skip Big Bear Blvd</li>
+                        <li>Saves 20 minutes on weekends</li>
+                        <li>Locals call it "The Back Way"</li>
+                    </ul>
+                </li>
+                <li><strong>Gas Station Hack:</strong>
+                    <ul>
+                        <li>Cheapest gas: Big Bear City (4 miles east)</li>
+                        <li>Save $0.30-0.50 per gallon</li>
+                        <li>Fill up Tuesday mornings</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>🌄 Secret Sunrise/Sunset Spots</h3>
+        <div class="activity-section">
+            <h4>July 2025 Sun Times for Perfect Photos</h4>
+            <ul>
+                <li><strong>July 21:</strong> Sunrise 5:54 AM, Sunset 7:57 PM</li>
+                <li><strong>July 22:</strong> Sunrise 5:55 AM, Sunset 7:56 PM</li>
+                <li><strong>July 23:</strong> Sunrise 5:56 AM, Sunset 7:56 PM</li>
+            </ul>
+            
+            <h4>Secret Photo Spots</h4>
+            <div class="restaurant-grid">
+                <div class="restaurant-card">
+                    <h4>The Observatory Pier</h4>
+                    <ul>
+                        <li><strong>Public can walk on pier!</strong></li>
+                        <li>360-degree sunrise views</li>
+                        <li>Solar observatory in background</li>
+                        <li>GPS: <a href="https://www.google.com/maps/place/Big+Bear+Solar+Observatory" target="_blank">BBSO Location</a></li>
+                    </ul>
+                </div>
+                <div class="restaurant-card">
+                    <h4>Windy Point Secret Pullout</h4>
+                    <ul>
+                        <li>Unmarked turnout on Hwy 38</li>
+                        <li>Mile marker 54.5</li>
+                        <li>Entire lake panorama</li>
+                        <li>Zero crowds at sunset</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>💰 Money-Saving Secrets & Free Activities</h2>
+        <div class="success-box">
+            <h4>Save $500+ With These Local Tips!</h4>
+        </div>
+
+        <h3>🎟️ Discount Codes & Deals</h3>
+        <div class="highlight-box">
+            <h4>July 2025 Promo Codes</h4>
+            <ul>
+                <li><strong>Alpine Slide:</strong> Code "SUMMER25" = 20% off multi-ride packs</li>
+                <li><strong>Big Bear Parasail:</strong> "FLYHI" = $25 off per person</li>
+                <li><strong>Action Zipline:</strong> Book online for automatic 15% off</li>
+                <li><strong>Snow Summit Scenic Chair:</strong> "LOCALVIEW" = Kids ride free</li>
+                <li><strong>Village Theaters:</strong> Tuesday all seats $6</li>
+                <li><strong>Bowling Barn:</strong> "STRIKE25" = Free shoe rental</li>
+                <li><strong>Helicopter Tours:</strong> Morning flights 30% cheaper</li>
+            </ul>
+        </div>
+
+        <h3>🆓 Completely FREE Activities</h3>
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <h4>Free Beach Concerts</h4>
+                <ul>
+                    <li><strong>Every Friday</strong> 6-8 PM</li>
+                    <li>Village Park lawn</li>
+                    <li>Bring blankets & picnic</li>
+                    <li>July 25: Beach Boys tribute</li>
+                    <li>Free face painting for kids</li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>Dam Tour & Museum</h4>
+                <ul>
+                    <li><strong>Big Bear Dam</strong></li>
+                    <li>Self-guided tour</li>
+                    <li>Historic markers</li>
+                    <li>Walk across dam</li>
+                    <li>Mini museum at east end</li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>Gold Rush Cemetery</h4>
+                <ul>
+                    <li><strong>Pioneer Cemetery</strong></li>
+                    <li>1800s graves</li>
+                    <li>Ghost stories</li>
+                    <li>Scavenger hunt list</li>
+                    <li>Shady/cool in afternoon</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🏕️ Insider Activity Hacks</h3>
+        <div class="info-box">
+            <h4>Get More for Less</h4>
+            <ul>
+                <li><strong>Marina Secret:</strong> Rent boats at 3 PM for "sunset special" - same price but they let you keep until dark (9 PM)</li>
+                <li><strong>Restaurant Week:</strong> Many restaurants offer kids-eat-free Tuesdays in summer</li>
+                <li><strong>Group Discounts:</strong> ALWAYS ask - most activities discount 10+ people</li>
+                <li><strong>Combo Tickets:</strong> Alpine Slide + Go-Karts + Mini Golf = $65 (save $25)</li>
+                <li><strong>Happy Hours:</strong> 3-6 PM many restaurants have appetizer specials</li>
+                <li><strong>BYOB Boats:</strong> Bring your own beverages on pontoon rentals (saves $50+)</li>
+                <li><strong>Firewood:</strong> Don't buy at stores! Free kindling at forest service roads</li>
+            </ul>
+        </div>
+
+        <h2>🚻 Parent Survival Guide - Bathrooms & Pit Stops</h2>
+        <div class="danger-box">
+            <h4>Emergency Bathroom Locations (Kid-Tested!)</h4>
+        </div>
+
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <h4>Always Clean & Available</h4>
+                <ul>
+                    <li><strong>Vons Grocery:</strong> Back left corner</li>
+                    <li><strong>Village Parking Deck:</strong> Level 2</li>
+                    <li><strong>Starbucks:</strong> Code: 2025</li>
+                    <li><strong>Library:</strong> No purchase needed</li>
+                    <li><strong>Fire Station:</strong> Ask nicely!</li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>Lake Area Facilities</h4>
+                <ul>
+                    <li><strong>Boulder Bay:</strong> By parking lot</li>
+                    <li><strong>Meadow Park:</strong> Near playground</li>
+                    <li><strong>Captain John's:</strong> Customers only</li>
+                    <li><strong>Discovery Center:</strong> Very clean</li>
+                    <li><strong>Pine Knot Landing:</strong> Seasonal</li>
+                </ul>
+            </div>
+            <div class="restaurant-card">
+                <h4>Emergency Options</h4>
+                <ul>
+                    <li><strong>All gas stations</strong></li>
+                    <li><strong>Any restaurant</strong> (buy water)</li>
+                    <li><strong>Medical buildings</strong></li>
+                    <li><strong>Real estate offices</strong></li>
+                    <li><strong>Chamber of Commerce</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🏛️ Historical Sites & Museums</h2>
+        <div class="cultural-box">
+            <h3>Big Bear Valley Historical Museum</h3>
+            <p><strong>Location:</strong> <a href="https://maps.google.com/?q=800+Greenway+Dr+Big+Bear+City+CA" target="_blank">800 Greenway Dr, Big Bear City</a></p>
+            <ul>
+                <li><strong>Hours:</strong> Weekends 10 AM - 4 PM</li>
+                <li><strong>Admission:</strong> Adults $5, Kids under 12 FREE</li>
+                <li><strong>Features:</strong>
+                    <ul>
+                        <li>Gold Rush artifacts from 1860s Holcomb Valley rush</li>
+                        <li>Native American Serrano exhibits</li>
+                        <li>Vintage ski equipment from Big Bear's early resort days</li>
+                        <li>Replica blacksmith shop</li>
+                    </ul>
+                </li>
+                <li><strong>Phone:</strong> <a href="tel:909-585-8100">(909) 585-8100</a></li>
+                <li><a href="https://www.bigbearvalleyhistory.com" target="_blank">Website</a></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Gold Fever Trail - Self-Guided Historical Tour</h3>
+            <ul>
+                <li><strong>Pick up map at:</strong> Big Bear Visitor Center or Museum</li>
+                <li><strong>Highlights:</strong>
+                    <ul>
+                        <li>Belleville Cabin - 1860s miner's cabin</li>
+                        <li>Holcomb Valley - Site of Southern California's largest gold rush</li>
+                        <li>Two Gun Bill's Saloon ruins</li>
+                        <li>Lucky Baldwin Mine entrance</li>
+                    </ul>
+                </li>
+                <li><strong>Distance:</strong> 7-mile driving loop</li>
+                <li><strong>Road Condition:</strong> Dirt road, high clearance recommended</li>
+            </ul>
+        </div>
+
+            <h2>🐕 Pet-Friendly Big Bear</h2>
+            <div class="success-box">
+                <h3>Bringing Your Dog to Big Bear Lake</h3>
+                <ul>
+                    <li><strong>Dog-Friendly Beaches:</strong> Most lake access points allow leashed dogs</li>
+                    <li><strong>Alpine Pedal Path:</strong> Perfect for dog walking (must be leashed)</li>
+                    <li><strong>Dog Parks:</strong> 
+                        <ul>
+                            <li>Meadow Park - Designated off-leash area</li>
+                            <li>Park Avenue Community Park - Fenced area</li>
+                        </ul>
+                    </li>
+                    <li><strong>Pet Supplies:</strong> Petco at 42184 Big Bear Blvd</li>
+                    <li><strong>Emergency Vet:</strong> Big Bear Animal Hospital - <a href="tel:909-585-5555">(909) 585-5555</a></li>
+                </ul>
+            </div>
+
+            <div class="restaurant-grid">
+                <div class="restaurant-card">
+                    <h4>Dog-Friendly Restaurants</h4>
+                    <ul>
+                        <li><strong>Saucy Mama's:</strong> Patio seating</li>
+                        <li><strong>Teddy Bear Restaurant:</strong> Outdoor tables</li>
+                        <li><strong>Himalayan Restaurant:</strong> Covered patio</li>
+                        <li><strong>Oakside Restaurant:</strong> German beer garden</li>
+                        <li><strong>The Peppercorn Grille:</strong> Heated patio</li>
+                    </ul>
+                </div>
+                <div class="restaurant-card">
+                    <h4>Dog-Friendly Activities</h4>
+                    <ul>
+                        <li><strong>Boat Rentals:</strong> Most pontoons allow dogs</li>
+                        <li><strong>Hiking:</strong> All trails (leashed)</li>
+                        <li><strong>Snow Summit Scenic Chair:</strong> Small dogs in carriers</li>
+                        <li><strong>Village Shopping:</strong> Most stores welcome pets</li>
+                    </ul>
+                </div>
+            </div>
+        
+        <!-- End Boys Adventures Tab -->
+        </div>
 
         <div class="tab-container">
 
