@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Tab Issue</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { margin: 5px; padding: 10px; }
+        .result { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Big Bear Tab Content Verifier</h1>
+    <p>This tool checks if the "Ultimate Packing Lists" content appears on tabs where it shouldn't.</p>
+    
+    <button onclick="checkTabs()">Check All Tabs</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        function checkTabs() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2>Checking tabs...</h2>';
+            
+            // Load the main file in an iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = 'big-bear-trip-july-2025.html';
+            iframe.style.width = '100%';
+            iframe.style.height = '400px';
+            iframe.style.border = '1px solid #ccc';
+            
+            iframe.onload = function() {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const showTabFunc = iframe.contentWindow.showTab;
+                
+                const tabIds = [
+                    'trip-overview',
+                    'your-cabin',
+                    'boys-adventures', 
+                    'fishing-guide',
+                    'water-activities',
+                    'dining-guide',
+                    'outdoor-adventures',
+                    'entertainment',
+                    'photography',
+                    'transportation',
+                    'safety-gear'
+                ];
+                
+                let results = '<h2>Tab Content Check Results:</h2>';
+                
+                tabIds.forEach(tabId => {
+                    // Switch to this tab
+                    if (showTabFunc) {
+                        showTabFunc(tabId);
+                        
+                        // Wait a bit for the tab to switch
+                        setTimeout(() => {
+                            // Check if "Ultimate Packing Lists" is visible
+                            const bodyText = iframeDoc.body.innerText || iframeDoc.body.textContent;
+                            const hasPackingLists = bodyText.includes('Ultimate Packing Lists by Activity');
+                            const hasEmergency = bodyText.includes('Emergency Scenarios & Solutions');
+                            
+                            const status = document.createElement('div');
+                            status.className = 'result';
+                            status.style.backgroundColor = (hasPackingLists && tabId !== 'safety-gear') ? '#ffcccc' : '#ccffcc';
+                            
+                            status.innerHTML = `
+                                <strong>Tab: ${tabId}</strong><br>
+                                Has "Ultimate Packing Lists": ${hasPackingLists ? 'YES' : 'NO'}<br>
+                                Has "Emergency Scenarios": ${hasEmergency ? 'YES' : 'NO'}<br>
+                                ${(hasPackingLists && tabId !== 'safety-gear') ? '❌ ERROR: This content should only be in safety-gear tab!' : '✅ OK'}
+                            `;
+                            
+                            resultsDiv.appendChild(status);
+                        }, 100);
+                    }
+                });
+                
+                // Remove iframe after testing
+                setTimeout(() => {
+                    iframe.remove();
+                }, 2000);
+            };
+            
+            document.body.appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
