@@ -30,6 +30,28 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+        }
+        .language-toggle {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c5aa0;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .language-toggle:hover {
+            background: white;
+            transform: translateY(-50%) translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .container {
             max-width: 1200px;
@@ -315,6 +337,11 @@
                 padding: 6px 8px;
                 flex: 1 1 auto;
             }
+            .language-toggle {
+                font-size: 10px;
+                padding: 6px 8px;
+                right: 10px;
+            }
         }
     </style>
     <script>
@@ -366,6 +393,49 @@
             window.scrollTo({ top: 80, behavior: 'smooth' });
         }
         
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang || 'en';
+            
+            if (currentLang === 'en') {
+                // Trigger translation to Russian
+                document.documentElement.lang = 'ru';
+                
+                // Try multiple methods to trigger Chrome translate
+                // Method 1: Google Translate element
+                if (window.google && window.google.translate) {
+                    window.google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'ru',
+                        autoDisplay: false
+                    }, 'google_translate_element');
+                }
+                
+                // Method 2: Add translate attribute
+                document.documentElement.setAttribute('translate', 'yes');
+                
+                // Method 3: Trigger browser translate
+                const meta = document.createElement('meta');
+                meta.name = 'google';
+                meta.content = 'translate';
+                document.head.appendChild(meta);
+                
+                // Update button text
+                document.querySelector('.language-toggle').innerHTML = '🇺🇸 English';
+                
+                // Show user how to translate
+                alert('To translate to Russian:\n1. Right-click anywhere on the page\n2. Select "Translate to Russian"\n\nOr use Chrome\'s translate icon in the address bar.');
+                
+            } else {
+                // Switch back to English
+                document.documentElement.lang = 'en';
+                document.documentElement.removeAttribute('translate');
+                document.querySelector('.language-toggle').innerHTML = '🇷🇺 Русский';
+                
+                // Reload page to reset translation
+                window.location.reload();
+            }
+        }
+
         // Initialize Trip Overview tab as active
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page loaded, initializing tabs...');
@@ -387,6 +457,7 @@
 <body>
     <div class="fixed-header">
         <div class="header-content">
+            <button class="language-toggle" onclick="toggleLanguage()">🇷🇺 Русский</button>
             <nav class="nav-tabs">
                 <button class="nav-tab" onclick="showTab('trip-overview')">🏔️ Trip Overview</button>
                 <button class="nav-tab" onclick="showTab('boys-adventures')">🏹 Kids Activities</button>
