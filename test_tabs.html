@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tab Test</title>
+    <script>
+        function testAllTabs() {
+            const tabIds = [
+                'trip-overview',
+                'boys-adventures', 
+                'water-activities',
+                'dining-guide',
+                'outdoor-adventures',
+                'entertainment',
+                'photography',
+                'transportation',
+                'safety-gear'
+            ];
+            
+            console.log('Testing all tabs...');
+            
+            // Test each tab
+            tabIds.forEach(tabId => {
+                const element = document.getElementById(tabId);
+                if (element) {
+                    console.log(`✓ Found tab: ${tabId}`);
+                } else {
+                    console.log(`✗ MISSING tab: ${tabId}`);
+                }
+            });
+            
+            // Test if showTab function exists
+            if (typeof showTab === 'function') {
+                console.log('✓ showTab function exists');
+                
+                // Test switching to each tab
+                tabIds.forEach(tabId => {
+                    try {
+                        showTab(tabId);
+                        console.log(`✓ Successfully switched to: ${tabId}`);
+                    } catch (e) {
+                        console.log(`✗ Error switching to ${tabId}: ${e.message}`);
+                    }
+                });
+            } else {
+                console.log('✗ showTab function not found');
+            }
+        }
+        
+        // Run test when page loads
+        window.onload = function() {
+            // Load the main page content via iframe and test
+            const iframe = document.createElement('iframe');
+            iframe.src = 'big-bear-trip-july-2025.html';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            iframe.onload = function() {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const showTabFunc = iframe.contentWindow.showTab;
+                
+                const tabIds = [
+                    'trip-overview',
+                    'boys-adventures', 
+                    'water-activities',
+                    'dining-guide',
+                    'outdoor-adventures',
+                    'entertainment',
+                    'photography',
+                    'transportation',
+                    'safety-gear'
+                ];
+                
+                console.log('=== TAB FUNCTIONALITY TEST ===');
+                
+                tabIds.forEach(tabId => {
+                    const element = iframeDoc.getElementById(tabId);
+                    if (element) {
+                        console.log(`✓ Found tab: ${tabId}`);
+                    } else {
+                        console.log(`✗ MISSING tab: ${tabId}`);
+                    }
+                });
+                
+                if (showTabFunc) {
+                    console.log('✓ showTab function exists');
+                    
+                    // Test if each tab actually shows unique content
+                    tabIds.forEach((tabId, index) => {
+                        try {
+                            showTabFunc(tabId);
+                            
+                            // Check if the tab is now active
+                            const tabElement = iframeDoc.getElementById(tabId);
+                            if (tabElement && tabElement.classList.contains('active')) {
+                                console.log(`✓ Tab ${tabId} is active and showing`);
+                            } else {
+                                console.log(`✗ Tab ${tabId} is not properly active`);
+                            }
+                            
+                        } catch (e) {
+                            console.log(`✗ Error with tab ${tabId}: ${e.message}`);
+                        }
+                    });
+                    
+                    console.log('=== TEST COMPLETE ===');
+                    
+                    // Display results in the page
+                    document.body.innerHTML = '<h1>Tab Test Complete</h1><p>Check browser console (F12) for detailed results</p><p><a href="big-bear-trip-july-2025.html">Open Main Page</a></p>';
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1>Loading tab test...</h1>
+</body>
+</html>
