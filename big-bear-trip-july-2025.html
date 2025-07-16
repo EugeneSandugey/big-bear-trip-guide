@@ -223,27 +223,28 @@
         }
         .nav-tabs {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 3px;
+            gap: 2px;
             padding: 5px 0;
-            overflow-x: auto;
         }
         .nav-tab {
             background: rgba(255, 255, 255, 0.9);
             color: #2c5aa0;
             border: none;
-            padding: 8px 12px;
+            padding: 8px 10px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            border-radius: 20px;
+            border-radius: 15px;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             white-space: nowrap;
-            flex-shrink: 0;
+            flex: 1 1 auto;
+            min-width: 0;
+            text-align: center;
         }
         .nav-tab:hover {
             background: white;
@@ -310,8 +311,9 @@
                 grid-template-columns: 1fr;
             }
             .nav-tab {
-                font-size: 14px;
-                padding: 10px 15px;
+                font-size: 11px;
+                padding: 6px 8px;
+                flex: 1 1 auto;
             }
         }
     </style>
