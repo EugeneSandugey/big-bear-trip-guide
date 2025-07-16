@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f7f9;
-            padding-top: 80px; /* Space for fixed header */
+            padding-top: 120px; /* More space for fixed header */
         }
         .fixed-header {
             position: fixed;
@@ -35,7 +35,7 @@
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            padding: 30px;
+            padding: 0;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
@@ -215,31 +215,35 @@
             font-size: 14px;
         }
         .tab-container {
-            margin: 20px 0;
+            margin: 0;
+            padding: 30px;
         }
         .tab-buttons {
             display: none; /* Hide the old tab buttons */
         }
         .nav-tabs {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: center;
-            gap: 5px;
+            gap: 3px;
             padding: 5px 0;
+            overflow-x: auto;
         }
         .nav-tab {
             background: rgba(255, 255, 255, 0.9);
             color: #2c5aa0;
             border: none;
-            padding: 12px 20px;
+            padding: 8px 12px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
-            border-radius: 25px;
+            border-radius: 20px;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .nav-tab:hover {
             background: white;
